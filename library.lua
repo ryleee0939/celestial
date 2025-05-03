@@ -54,23 +54,23 @@ local Library = {}; do
         -- Files
 
         if not isfile(Library.FolderName .. '/Utilities/Hue.png') then
-            writefile(Library.FolderName .. '/Utilities/Hue.png', game:HttpGet("https://raw.githubusercontent.com/sametexe001/celestial.club/refs/heads/main/images/hue.png"));
+            writefile(Library.FolderName .. '/Utilities/Hue.png', game:HttpGet("https://raw.githubusercontent.com/ryleee0939/celestial/refs/heads/main/hue.png"));
         end;
 
         if not isfile(Library.FolderName .. '/Utilities/Saturation.png') then
-            writefile(Library.FolderName .. '/Utilities/Saturation.png', game:HttpGet("https://raw.githubusercontent.com/sametexe001/celestial.club/refs/heads/main/images/saturation.png"));
+            writefile(Library.FolderName .. '/Utilities/Saturation.png', game:HttpGet("https://raw.githubusercontent.com/ryleee0939/celestial/refs/heads/main/saturation.png"));
         end;
 
         if not isfile(Library.FolderName .. '/Utilities/Value.png') then
-            writefile(Library.FolderName .. '/Utilities/Value.png', game:HttpGet("https://raw.githubusercontent.com/sametexe001/celestial.club/refs/heads/main/images/value.png"));
+            writefile(Library.FolderName .. '/Utilities/Value.png', game:HttpGet("https://raw.githubusercontent.com/ryleee0939/celestial/refs/heads/main/value.png"));
         end;
 
         if not isfile(Library.FolderName .. '/Utilities/Shadow.png') then
-            writefile(Library.FolderName .. '/Utilities/Shadow.png', game:HttpGet("https://raw.githubusercontent.com/sametexe001/celestial.club/refs/heads/main/images/shadow.png"));
+            writefile(Library.FolderName .. '/Utilities/Shadow.png', game:HttpGet("https://raw.githubusercontent.com/ryleee0939/celestial/refs/heads/main/shadow.png"));
         end;
 
         if not isfile(Library.FolderName .. '/Utilities/Logo.png') then
-            writefile(Library.FolderName .. '/Utilities/Logo.png', game:HttpGet("https://raw.githubusercontent.com/sametexe001/celestial.club/refs/heads/main/images/celestiallogo-removebg-preview.png"));
+            writefile(Library.FolderName .. '/Utilities/Logo.png', game:HttpGet("https://raw.githubusercontent.com/ryleee0939/celestial/refs/heads/main/celestiallogo-removebg-preview.png"));
         end;
     end;
 
@@ -165,27 +165,27 @@ local Library = {}; do
         fonts = {
             ["windows-xp-tahoma"] = {
                 file_name = {"windowsXPTahoma.ttf", "windowsXPTahoma.json"},
-                url = "https://raw.githubusercontent.com/sametexe001/luas/main/fonts/windows-xp-tahoma.ttf"
+                url = "https://raw.githubusercontent.com/ryleee0939/luas/main/fonts/windows-xp-tahoma.ttf"
             };
 
             ["proggy-square"] = {
                 file_name = {"proggySquare.ttf", "proggySquare.json"},
-                url = "https://github.com/sametexe001/luas/raw/refs/heads/main/fonts/proggy-square.ttf"
+                url = "https://github.com/ryleee0939/luas/raw/refs/heads/main/fonts/proggy-square.ttf"
             };
 
             ["proggy-clean"] = {
                 file_name = {"proggyClean.ttf", "proggySquare.json"},
-                url = "https://github.com/sametexe001/luas/raw/refs/heads/main/fonts/proggy-clean.ttf"
+                url = "https://github.com/ryleee0939/luas/raw/refs/heads/main/fonts/proggy-clean.ttf"
             };
 
             ["proggy-tiny"] = {
                 file_name = {"proggyTiny.ttf", "proggyTiny.json"},
-                url = "https://github.com/sametexe001/luas/raw/refs/heads/main/fonts/proggy-tiny.ttf"
+                url = "https://github.com/ryleee0939/luas/raw/refs/heads/main/fonts/proggy-tiny.ttf"
             };
 
             ["minecraftia"] = {
                 file_name = {"minecraftia.ttf", "minecraftia.json"},
-                url = "https://github.com/sametexe001/luas/raw/refs/heads/main/fonts/minecraftia.ttf"
+                url = "https://github.com/ryleee0939/luas/raw/refs/heads/main/fonts/minecraftia.ttf"
             };
         };
 
