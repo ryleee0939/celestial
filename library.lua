@@ -1108,7 +1108,7 @@ do -- menu
                 BackgroundTransparency = 1;
                 BorderSizePixel = 0;
                 ZIndex = 9999;
-                Image = "http://www.roblox.com/asset/?id=83177573971978";
+                Image = "http://www.roblox.com/asset/?id=85758460441148";
             });
             
             UI:AttachTheme(imagetoptab, { ImageColor3 = "accent" })
