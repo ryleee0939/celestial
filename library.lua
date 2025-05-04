@@ -2,24 +2,24 @@ local framework = loadstring(game:HttpGet("https://raw.githubusercontent.com/jud
 --
 do -- checks
     do -- folders
-        if (not isfolder("ENHANCEMENTS")) then
-            makefolder("ENHANCEMENTS");
+        if (not isfolder("Celestial")) then
+            makefolder("Celestial");
         end;
         --
         if (not isfolder("CONFIGS")) then
             makefolder("CONFIGS");
         end;
         --
-        if (not isfolder("ENHANCEMENTS/MENU")) then
-            makefolder("ENHANCEMENTS/MENU");
+        if (not isfolder("Celestial/MENU")) then
+            makefolder("Celestial/MENU");
         end;
         --
-        if (not isfolder("ENHANCEMENTS/MENU/FONTS")) then
-            makefolder("ENHANCEMENTS/MENU/FONTS");
+        if (not isfolder("Celestial/MENU/FONTS")) then
+            makefolder("Celestial/MENU/FONTS");
         end;
         --
-        if (not isfolder("ENHANCEMENTS/LOADER/IMAGES")) then
-            makefolder("ENHANCEMENTS/LOADER/IMAGES");
+        if (not isfolder("Celestial/LOADER/IMAGES")) then
+            makefolder("Celestial/LOADER/IMAGES");
         end;
     end;
 end;
@@ -50,25 +50,25 @@ signals = framework.modules.signals
 -- fonts
 local create_font = loadstring(game:HttpGet("https://raw.githubusercontent.com/judghementday2/bypass/refs/heads/main/fonts.lua"))();
 local fonts = {
-    smallest_pixel = create_font:register("ENHANCEMENTS/MENU/FONTS", {
+    smallest_pixel = create_font:register("Celestial/MENU/FONTS", {
         name = "smallest pixel",
         weight = "regular",
         style = "normal",
         link = "https://raw.githubusercontent.com/judghementday2/bypass/refs/heads/main/smallest_pixel-7.ttf",
     }),
-    templeos = create_font:register("ENHANCEMENTS/MENU/FONTS", {
+    templeos = create_font:register("Celestial/MENU/FONTS", {
         name = "templeos",
         weight = "regular",
         style = "normal",
         link = "https://raw.githubusercontent.com/judghementday2/bypass/refs/heads/main/Templeos.ttf",
     }),
-    proggytiny = create_font:register("ENHANCEMENTS/MENU/FONTS", {
+    proggytiny = create_font:register("Celestial/MENU/FONTS", {
         name = "proggytiny",
         weight = "regular",
         style = "normal",
         link = "https://raw.githubusercontent.com/judghementday2/bypass/refs/heads/main/ProggyTiny.ttf",
     }),
-    medodica = create_font:register("ENHANCEMENTS/MENU/FONTS", {
+    medodica = create_font:register("Celestial/MENU/FONTS", {
         name = "medodica",
         weight = "regular",
         style = "normal",
@@ -83,61 +83,67 @@ local UI = ({
     ui_key = Enum.KeyCode.Delete,
     menu_gui = nil,
     watermark_gui = nil,
-    noti_screen_gui = nil,
     keybind_screen_gui = nil,
     keybind_list = nil,
     themes = {
         Default = {
             accent = color3_rgb(131, 135, 250),
-            risky = color3_rgb(200, 0, 0),
-            background = color3_rgb(17, 17, 17),
-            outline = color3_rgb(27, 27, 27),
-            active = color3_rgb(255, 255, 255),
-            inactive = color3_rgb(120, 120, 120)
+            risky = color3_rgb(125, 0, 0),
+            background = color3_rgb(7, 7, 8),
+            outline = color3_rgb(15, 15, 16),
+            active = color3_rgb(225, 225, 225),
+            inactive = color3_rgb(69, 69, 70)
         },
         fatality = {
             accent = color3_rgb(130, 0, 69),
-            risky = color3_rgb(200, 0, 0),
-            background = color3_rgb(17, 17, 17),
-            outline = color3_rgb(27, 27, 27),
-            active = color3_rgb(255, 255, 255),
-            inactive = color3_rgb(120, 120, 120)
+            risky = color3_rgb(125, 0, 0),
+            background = color3_rgb(7, 7, 8),
+            outline = color3_rgb(15, 15, 16),
+            active = color3_rgb(225, 225, 225),
+            inactive = color3_rgb(69, 69, 70)
         },
         gamesense = {
             accent = color3_rgb(180, 228, 128),
-            risky = color3_rgb(200, 0, 0),
-            background = color3_rgb(17, 17, 17),
-            outline = color3_rgb(27, 27, 27),
-            active = color3_rgb(255, 255, 255),
-            inactive = color3_rgb(120, 120, 120)
+            risky = color3_rgb(125, 0, 0),
+            background = color3_rgb(10, 10, 10),
+            outline = color3_rgb(20, 20, 20),
+            active = color3_rgb(225, 225, 225),
+            inactive = color3_rgb(80, 80, 80)
         },
         quantum = {
             accent = color3_rgb(195, 0, 0),
-            risky = color3_rgb(200, 0, 0),
-            background = color3_rgb(17, 17, 17),
-            outline = color3_rgb(27, 27, 27),
-            active = color3_rgb(255, 255, 255),
-            inactive = color3_rgb(120, 120, 120)
+            risky = color3_rgb(125, 0, 0),
+            background = color3_rgb(10, 10, 10),
+            outline = color3_rgb(20, 20, 20),
+            active = color3_rgb(225, 225, 225),
+            inactive = color3_rgb(80, 80, 80)
         },
         ["blue baby"] = {
             accent = color3_rgb(0, 255, 255),
-            risky = color3_rgb(200, 0, 0),
-            background = color3_rgb(17, 17, 17),
-            outline = color3_rgb(27, 27, 27),
-            active = color3_rgb(255, 255, 255),
-            inactive = color3_rgb(120, 120, 120)
+            risky = color3_rgb(125, 0, 0),
+            background = color3_rgb(10, 10, 10),
+            outline = color3_rgb(20, 20, 20),
+            active = color3_rgb(225, 225, 225),
+            inactive = color3_rgb(80, 80, 80)
         },
         ["the hub"] = {
             accent = color3_rgb(255,163,26),
-            risky = color3_rgb(200, 0, 0),
-            background = color3_rgb(17, 17, 17),
-            outline = color3_rgb(27, 27, 27),
-            active = color3_rgb(255, 255, 255),
-            inactive = color3_rgb(120, 120, 120)
+            risky = color3_rgb(125, 0, 0),
+            background = color3_rgb(10, 10, 10),
+            outline = color3_rgb(20, 20, 20),
+            active = color3_rgb(225, 225, 225),
+            inactive = color3_rgb(80, 80, 80)
+        },
+        ["off white"] = {
+            accent = color3_rgb(205,205,205),
+            risky = color3_rgb(125, 0, 0),
+            background = color3_rgb(10, 10, 10),
+            outline = color3_rgb(20, 20, 20),
+            active = color3_rgb(225, 225, 225),
+            inactive = color3_rgb(80, 80, 80)
         },
     },
     instancemap = {},
-    notifications = {};
 
     keys = {
         [Enum.KeyCode.LeftShift] = "L-SHIFT", [Enum.KeyCode.RightShift] = "R-SHIFT", [Enum.KeyCode.LeftControl] = "L-CTRL",
@@ -180,20 +186,10 @@ function UI:AttachTheme(obj, props)
 
     for property, themeKey in pairs(props) do
         if self.themes[activeTheme] and self.themes[activeTheme][themeKey] then
-            local targetValue = self.themes[activeTheme][themeKey]
-
-            if property == "ImageColor3" or property == "TextColor3" then
-                if obj[property] ~= targetValue then
-                    tween_service:Create(obj, TweenInfo.new(0.3, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {
-                        [property] = targetValue
-                    }):Play()
-                end
-            else
-                obj[property] = targetValue
-            end
-        end
-    end
-end
+            obj[property] = self.themes[activeTheme][themeKey];
+        end;
+    end;
+end;
 function UI:GetSelectedThemeAndAccent()
     local activeTheme = self.currentTheme or "Default";
     local accentColor = self.themes[activeTheme].accent ;
@@ -207,7 +203,6 @@ UI.sections.__index = UI.sections;
 --
 local black_bg;
 local blur_effect;
-local menu_open = false;
 do -- other
     function UI.next_flag() -- flags
         UI.un_named_flags = UI.un_named_flags + 1;
@@ -362,152 +357,6 @@ do -- other
 end
 --
 do -- menu
-    function UI:Notification(message, duration, color, player)
-        local notification = {
-            Container = nil, Objects = {}
-        };
-    
-        local notif_ui = cloneref(Instance.new("ScreenGui", gethui()))
-        local notifcontainer = Instance.new('Frame', notif_ui)
-        local outline = Instance.new("Frame")
-        local inline = Instance.new("Frame")
-        local value = Instance.new("TextLabel")
-        local uipadding = Instance.new("UIPadding")
-        local time_line = Instance.new("Frame")
-        local base_position = Vector2.new(25, 65) -- fixed X, starting Y position for notifications
-        local player_image = Instance.new("ImageLabel")
-    
-        do -- properties
-            notif_ui.Name = "notification"
-            notif_ui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-            notif_ui.IgnoreGuiInset = Enum.ScreenInsets.DeviceSafeInsets
-            notif_ui.IgnoreGuiInset = true
-            UI.noti_screen_gui = notif_ui
-    
-            notifcontainer.Name = "container"
-            notifcontainer.Position = UDim2.new(0, base_position.X, 0, base_position.Y + (#UI.notifications * 25))
-            notifcontainer.AutomaticSize = Enum.AutomaticSize.X
-            notifcontainer.Size = UDim2.new(0, 0, 0, 18)
-            notifcontainer.BackgroundColor3 = Color3.new(1, 1, 1)
-            notifcontainer.BackgroundTransparency = 1
-            notifcontainer.BorderSizePixel = 0
-            notifcontainer.BorderColor3 = Color3.new(0, 0, 0)
-            notifcontainer.ZIndex = 99999999
-            notification.Container = notifcontainer
-    
-            outline.Name = "outline"
-            outline.AutomaticSize = Enum.AutomaticSize.X
-            outline.BorderColor3 = Color3.fromRGB(0, 0, 0)
-            outline.Position = UDim2.new(0.01, 0, 0.02, 0)
-            outline.Size = UDim2.new(0, 0, 0, 18)
-            outline.Parent = notifcontainer
-            outline.BackgroundTransparency = 1
-            table.insert(notification.Objects, outline)
-
-            UI:AttachTheme(outline, { BackgroundColor3 = "background" })
-    
-            inline.Name = "inline"
-            inline.BackgroundColor3 = Color3.fromRGB(5, 5, 5)
-            inline.BorderColor3 = Color3.fromRGB(0, 0, 0)
-            inline.BorderSizePixel = 0
-            inline.Position = UDim2.new(0, 1, 0, 0)
-            inline.Size = UDim2.new(1, 0, 1, -1)
-            inline.BackgroundTransparency = 1
-            inline.Parent = outline
-            table.insert(notification.Objects, inline)
-    
-            if player then
-                local imagedata = players:GetUserThumbnailAsync(player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
-                player_image.Image = imagedata
-                player_image.Size = UDim2.new(0, 14, 0, 14)
-                player_image.Position = UDim2.new(0, 4, 0.8, -13)
-                player_image.BackgroundTransparency = 1
-                player_image.Parent = inline
-                value.Position = UDim2.new(0, 20, 0, 0)
-                table.insert(notification.Objects, player_image)
-            end
-    
-            value.Name = "text"
-            value.Text = message
-            value.TextColor3 = Color3.fromRGB(255, 255, 255)
-            value.TextStrokeTransparency = 0
-            value.TextXAlignment = Enum.TextXAlignment.Left
-            value.AutomaticSize = Enum.AutomaticSize.X
-            value.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-            value.BackgroundTransparency = 1
-            value.Size = UDim2.new(0, 0, 1, 0)
-            value.TextTransparency = 1
-            value.Parent = inline
-            value.FontFace = UI.font
-            value.TextSize = UI.font_size
-            table.insert(notification.Objects, value)
-    
-            uipadding.Name = "uipadding"
-            uipadding.PaddingLeft = UDim.new(0, 5)
-            uipadding.PaddingRight = UDim.new(0, 5)
-            uipadding.PaddingTop = UDim.new(0, 1)
-            uipadding.Parent = value
-    
-            time_line.Name = "timeline"
-            time_line.BorderColor3 = Color3.fromRGB(0, 0, 0)
-            time_line.BorderSizePixel = 0
-            time_line.Size = UDim2.new(0, 0, 1, 0) -- start at 0 size
-            time_line.Parent = outline
-            time_line.BackgroundTransparency = 1
-            time_line.BackgroundColor3 = color
-            time_line.ZIndex = -1
-            table.insert(notification.Objects, time_line)
-        end
-    
-        function notification:remove()
-            local index = table.find(UI.notifications, notification)
-            if index then
-                for _, v in ipairs(notification.Objects) do
-                    if v:IsA("Frame") or v:IsA("ImageLabel") then
-                        tween_service:Create(v, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
-                    elseif v:IsA("TextLabel") then
-                        tween_service:Create(v, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 1}):Play()
-                    end
-                end
-    
-                task.wait(0.5)
-                table.remove(UI.notifications, table.find(UI.notifications, notification))
-                notif_ui:Destroy()
-                notification.Container:Destroy()
-    
-                for i = index, #UI.notifications do
-                    local notif = UI.notifications[i]
-                    local newPosition = UDim2.new(0, base_position.X, 0, base_position.Y + (i - 1) * 25)
-                    tween_service:Create(notif.Container, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = newPosition}):Play()
-                end
-            end
-        end
-    
-        task.spawn(function()
-            outline.AnchorPoint = Vector2.new(1, 0)
-            for _, v in next, notification.Objects do
-                if v:IsA("Frame") then
-                    tween_service:Create(v, TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {BackgroundTransparency = 0}):Play()
-                elseif v:IsA("ImageLabel") then
-                    tween_service:Create(v, TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {BackgroundTransparency = 0}):Play()
-                end
-            end
-            tween_service:Create(outline, TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {AnchorPoint = Vector2.new(0, 0)}):Play()
-            tween_service:Create(value, TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {TextTransparency = 0}):Play()
-            tween_service:Create(player_image, TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {ImageTransparency = 0}):Play()
-            tween_service:Create(time_line, TweenInfo.new(duration, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {Size = UDim2.new(1, 0, 1, 0)}):Play()
-    
-            task.wait(duration)
-            notification:remove()
-        end)
-    
-        table.insert(UI.notifications, notification)
-        notifcontainer.Position = UDim2.new(0, base_position.X, 0, base_position.Y + (#UI.notifications - 1) * 25)
-    
-        return notification
-    end
-    --
-    do -- menu
     function UI:watermark(properties)
         local watermark = {
             name = (properties.Name or properties.name or "watermark text | placeholder");
@@ -590,7 +439,7 @@ do -- menu
         end
 
         return watermark;
-    end     
+    end
     --
     function UI:NewPicker(name, default, defaultalpha, parent, count, flag, callback)
         local Icon = Instance.new("TextButton", parent)
@@ -1045,8 +894,8 @@ do -- menu
     do -- window
         function UI:window(options)
             local window = {
-                name = (options.Name or options.name or "visual enhancements");
-                size = (options.Size or options.size or udim2(0, 770, 0, 500));
+                name = (options.Name or options.name or " Celestial");
+                size = (options.Size or options.size or udim2(0, 750, 0, 500));
                 position = (options.position == "left" and Enum.TextXAlignment.Left) or (options.position == "center" and Enum.TextXAlignment.Center) or (options.position == "right" and Enum.TextXAlignment.Right) or Enum.TextXAlignment.Left,
                 dragging = { false, udim2(0, 0, 0, 0) };
                 page_amount = options.Amount or options.amount or 5;
@@ -1056,11 +905,10 @@ do -- menu
             };
             --
             local menu = Instance_manager.new("ScreenGui", {
-                Name = "visual menu";
+                Name = " menu";
                 Parent = cloneref(gethui());
                 IgnoreGuiInset = Enum.ScreenInsets.DeviceSafeInsets;
                 ZIndexBehavior = Enum.ZIndexBehavior.Sibling;
-                DisplayOrder = 10; 
             });
             UI.menu_gui = menu;
 
@@ -1079,59 +927,29 @@ do -- menu
             UI:AttachTheme(background, { BackgroundColor3 = "background" })
             UI:AttachTheme(background, { BorderColor3 = "outline" })
 
-            local background2 = Instance_manager.new("Frame", {
-                Name = "background2";
-                Parent = background;
-                AnchorPoint = vec2(0.5, 0.5);
-                Position = udim2(0.5, 0, 0.5, 0);
-                Size = udim2(1,0,1,0);
-                BorderColor3 = Color3.fromRGB(40, 40, 40);
-                BackgroundColor3 = Color3.fromRGB(17, 17, 17);
-                BorderSizePixel = 2;
-                ZIndex = -1;
-            });
-
-            Instance_manager.new("UIStroke", {
-                Parent = background2;
-                Color = Color3.fromRGB(0, 0, 0);
-                Thickness = 1;
-                Transparency = 0;
-                LineJoinMode = Enum.LineJoinMode.Miter;
-                Enabled = true;
-            });
-
-            local imagetoptab = Instance_manager.new("ImageLabel", {
-                Name = "topimg";
-                Parent = background;
-                Position = udim2(0, 5, 0, 15);
-                Size = udim2(0,70,0,70);
-                BackgroundTransparency = 1;
+            local line_thing = Instance_manager.new("Frame", {
+                Name = "line";
+                ZIndex = 10;
+                BackgroundTransparency = 1; -- later add checks
+                BorderColor3 = color3_rgb(0, 0, 0);
                 BorderSizePixel = 0;
-                ZIndex = 9999;
-                Image = "http://www.roblox.com/asset/?id=85758460441148";
+                Position = udim2(0, 0, 0, 0);
+                Size = udim2(1, 0, 0, 1);
+                Parent = background;
             });
-            
-            UI:AttachTheme(imagetoptab, { ImageColor3 = "accent" })
+
+            UI:AttachTheme(line_thing, { BackgroundColor3 = "accent" })
 
             local line_thingy2 = Instance_manager.new("Frame", {
                 Name = "line";
-                BorderSizePixel = 2;
-                Position = udim2(0, 82, 0, 0);
+                BorderColor3 = color3_rgb(0, 0, 0);
+                BorderSizePixel = 0;
+                Position = udim2(0, 80, 0, 0);
                 Size = udim2(0, 1, 1, 0);
                 Parent = background;
             });
 
-            Instance_manager.new("UIStroke", {
-                Parent = line_thingy2;
-                Color = Color3.fromRGB(0, 0, 0);
-                Thickness = 1;
-                Transparency = 0;
-                LineJoinMode = Enum.LineJoinMode.Miter;
-                Enabled = true;
-            });
-
-            UI:AttachTheme(line_thingy2, { BackgroundColor3 = "background" })
-            UI:AttachTheme(line_thingy2, { BorderColor3 = "outline" })
+            UI:AttachTheme(line_thingy2, { BackgroundColor3 = "outline" })
 
             local tabs_holder = Instance_manager.new("Frame", {
                 Name = "tabs_holder";
@@ -1149,7 +967,7 @@ do -- menu
                 BackgroundTransparency = 1.000;
                 BorderColor3 = color3_rgb(255, 255, 255);
                 BorderSizePixel = 0;
-                Position = udim2(0.138, 0, 0, 13);
+                Position = udim2(0.127, 0, 0, 13);
                 Size = udim2(0, 640, 0, 470);
                 Parent = background;
             });
@@ -1207,30 +1025,21 @@ do -- menu
                 keybind.Name = "KeyBind List"
                 keybind.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
                 keybind.IgnoreGuiInset = Enum.ScreenInsets.DeviceSafeInsets
-                keybind.DisplayOrder = 10; 
                 UI.keybind_screen_gui = keybind
                 
                 Background.Name = "Background"
-                Background.BorderColor3 = Color3.fromRGB(11, 11, 11)
-                Background.BorderSizePixel = 2;
+                Background.BackgroundColor3 = Color3.fromRGB(11, 11, 11)
+                Background.BorderColor3 = Color3.fromRGB(25, 25, 25)
                 Background.Position = UDim2.new(0.01, 0, 0.488, 0)
                 Background.Size = UDim2.new(0, 164, 0, 24)
                 Background.Visible = false
                 Background.AutomaticSize = Enum.AutomaticSize.XY
                 Background.Parent = keybind
 
-                local stroke = Instance.new("UIStroke")
-                stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
-                stroke.Color = Color3.fromRGB(71, 71, 71)
-                stroke.Thickness = 1
-                stroke.Parent = Background
-        
-                UI:AttachTheme(Background, { BackgroundColor3 = "background" })
-
                 TopLine.Name = "TopLine"
                 TopLine.BorderColor3 = Color3.fromRGB(25, 25, 25)
                 TopLine.Position = UDim2.new(0, 0, 0, 0)
-                TopLine.Size = UDim2.new(1, 0, 0, 1)                
+                TopLine.Size = UDim2.new(1, 0, 0, 1)
                 TopLine.Visible = true
                 TopLine.AutomaticSize = Enum.AutomaticSize.XY
                 TopLine.Parent = Background
@@ -1337,10 +1146,8 @@ do -- menu
                     Name = "UIListLayout";
                     Padding = udim(0, 0);
                     SortOrder = Enum.SortOrder.LayoutOrder;
-                    FillDirection = Enum.FillDirection.Vertical;
-                    VerticalAlignment = Enum.VerticalAlignment.Center;
                     Parent = page.window.elements.tab_holder;
-                });                
+                });
             end;
             --
             local tab_button = Instance_manager.new("TextButton", {
@@ -1396,20 +1203,9 @@ do -- menu
                 Name = "left";
                 Size = UDim2.new(0.33, -10, 1, 0);
                 ScrollBarThickness = 0;
-                BorderSizePixel = 2;
                 AutomaticCanvasSize = Enum.AutomaticSize.Y;
                 Parent = new_page;
             });
-
-            Instance_manager.new("UIStroke", {
-                Parent = left;
-                Color = Color3.fromRGB(0, 0, 0);
-                Thickness = 1;
-                Transparency = 0;
-                LineJoinMode = Enum.LineJoinMode.Miter;
-                Enabled = true;
-            });
-
             UI:AttachTheme(left, { BackgroundColor3 = "background" })
             UI:AttachTheme(left, { BorderColor3 = "outline" })
 
@@ -1425,18 +1221,8 @@ do -- menu
                 Position = udim2(0.333, 3, 0, 0);
                 Size = udim2(0.333, -12, 1, 0);
                 ScrollBarThickness = 0;
-                BorderSizePixel = 2;
                 AutomaticCanvasSize = Enum.AutomaticSize.Y;
                 Parent = new_page;
-            });
-
-            Instance_manager.new("UIStroke", {
-                Parent = center;
-                Color = Color3.fromRGB(0, 0, 0);
-                Thickness = 1;
-                Transparency = 0;
-                LineJoinMode = Enum.LineJoinMode.Miter;
-                Enabled = true;
             });
 
             UI:AttachTheme(center, { BackgroundColor3 = "background" })
@@ -1454,18 +1240,8 @@ do -- menu
                 Position = udim2(0.666, 6, 0, 0);
                 Size = udim2(0.333, -4, 1, 0);
                 ScrollBarThickness = 0;
-                BorderSizePixel = 2;
                 AutomaticCanvasSize = Enum.AutomaticSize.Y;
                 Parent = new_page;
-            });
-
-            Instance_manager.new("UIStroke", {
-                Parent = right;
-                Color = Color3.fromRGB(0, 0, 0);
-                Thickness = 1;
-                Transparency = 0;
-                LineJoinMode = Enum.LineJoinMode.Miter;
-                Enabled = true;
             });
 
             UI:AttachTheme(right, { BackgroundColor3 = "background" })
@@ -1479,77 +1255,50 @@ do -- menu
             });
             --
             do -- auto-sizer
-                local holder = page.window.elements.tab_holder
-                Instance_manager.new("UIPadding", {
-                    Name = "HolderPadding";
-                    PaddingTop = UDim.new(0, 60);
-                    Parent = holder;
-                });
-
                 local tabs = {};
                 for _, v in pairs(page.window.elements.tab_holder:GetChildren()) do
                     if v:IsA("GuiObject") and not v:IsA("UIListLayout") and not v:IsA("UIGridLayout") then
                         table.insert(tabs, v);
                     end
                 end
-                
+
                 local tab_count = #tabs;
                 local holder_size = page.window.elements.tab_holder.Size.Y.Offset;
                 local adjusted_size = math.max(holder_size, 0);
-                
+
                 if tab_count > 0 and adjusted_size > 0 then
-                    local tab_height = (adjusted_size * 0.8) / tab_count; 
-                
+                    local tab_height = adjusted_size / tab_count;
+
                     for _, tab in ipairs(tabs) do
-                        tab.Size = UDim2.new(1, 0, 0, tab_height);
+                        tab.Size = udim2(1, 0, 0, tab_height);
                     end
-                end                
+                end
             end
             --
-            local current_animation_token = 0
             function page:Turn(bool)
                 page.open = bool;
                 new_page.Visible = bool;
 
-                local blink_duration = 0.3  
-                local pause_before = 0.15  
-                
-                current_animation_token += 1
-                local my_token = current_animation_token
-                
+                local tweens = {}
                 for _, v in pairs(UI.menu_gui:GetDescendants()) do
-                    if table.find({
-                        "toggle_bg", "accent_bg", "Slider_Inline", "Slider_Accent", "Slider_Circle", "List_Outline",
-                        "List_Inline", "Keybind_Outline", "Keybind_Inline", "button_outline", "button_inline",
-                        "textbox_outline", "textbox_inline", "ContentOutline", "ContentInline"
-                    }, v.Name) then
-                        v.BackgroundTransparency = 1
-                
-                        task.delay(pause_before, function()
-                            if my_token ~= current_animation_token then return end
-                            if not page.open then return end
-                            tween_service:Create(v, TweenInfo.new(blink_duration, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {
-                                BackgroundTransparency = 0
-                            }):Play()
-                        end)
-                    end
-                
+                    if table.find({ "toggle_bg", "accent_bg", "Slider_Inline", "Slider_Accent", "Slider_Circle", "List_Outline", "List_Inline", "Keybind_Outline", "Keybind_Inline", "button_outline", "button_inline", "textbox_outline", "textbox_inline", "ContentOutline", "ContentInline"}, v.Name) then
+                        if bool then v.BackgroundTransparency = 1 end;
+                        table.insert(tweens, tween_service:Create(v, TweenInfo.new(0.333, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), { BackgroundTransparency = bool and 0 or 1 }));
+                    end;
+
                     if v:IsA("TextLabel") and v.Name ~= "Window_Name" then
-                        v.TextTransparency = 1 
-                
-                        task.delay(pause_before, function()
-                            if my_token ~= current_animation_token then return end
-                            if not page.open then return end
-                            tween_service:Create(v, TweenInfo.new(blink_duration, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {
-                                TextTransparency = 0
-                            }):Play()
-                        end)
-                    end
-                end                                               
+                        if bool then v.TextTransparency = 1 end;
+                        table.insert(tweens, tween_service:Create(v, TweenInfo.new(0.333, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), { TextTransparency = bool and 0 or 1 }));
+                    end;
+                end;
+
+                for _, tween in ipairs(tweens) do
+                    tween:Play()
+                end;
   
-                --tween_service:Create(tab_button, TweenInfo.new(0.3, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {
-                --    BackgroundColor3 = UI:AttachTheme(tab_button, { BackgroundColor3 = bool and "outline" or "background" })
-                --}):Play()                
+                tween_service:Create(tab_button, TweenInfo.new(0.3, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {
+                    BackgroundColor3 = UI:AttachTheme(tab_button, { BackgroundColor3 = bool and "outline" or "background" })
+                }):Play()                
 
                 tween_service:Create(image_button, TweenInfo.new(0.3, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {
                     ImageColor3 = UI:AttachTheme(image_button, { ImageColor3 = bool and "accent" or "inactive" })
@@ -1557,8 +1306,24 @@ do -- menu
                 
                 tween_service:Create(text_button, TweenInfo.new(0.3, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {
                     TextColor3 = UI:AttachTheme(text_button, { TextColor3 = bool and "accent" or "inactive" })
-                }):Play()                    
-            end;           
+                }):Play()                
+            end;
+            --
+            tab_button.MouseEnter:Connect(function()
+                if (not page.open) then
+                    tween_service:Create(tab_button, TweenInfo.new(0.3, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {
+                        BackgroundColor3 = UI:AttachTheme(tab_button, { BackgroundColor3 = "outline" })
+                    }):Play()
+                end
+            end)
+            
+            tab_button.MouseLeave:Connect(function()
+                if (not page.open) then
+                    tween_service:Create(tab_button, TweenInfo.new(0.3, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {
+                        BackgroundColor3 = UI:AttachTheme(tab_button, { BackgroundColor3 = "background" })
+                    }):Play()
+                end
+            end)            
             --
             signals.connection(tab_button.MouseButton1Down, function()
                 if not page.open then
@@ -1733,7 +1498,7 @@ do -- menu
             BorderSizePixel = 0;
             Position = udim2(0, 0, 0, 0);
             Size = udim2(1, 0, 1, 0);
-            TextColor3 = toggle.risk and color3_rgb(200, 0, 0) or color3_rgb(255, 255, 255);
+            TextColor3 = toggle.risk and color3_rgb(125, 0, 0) or color3_rgb(255, 255, 255);
             Parent = new_toggle;
             Text = toggle.name;
         });
@@ -1768,13 +1533,9 @@ do -- menu
         
             UI:AttachTheme(toggle_bg, { BackgroundColor3 = toggle.toggled and "accent" or "outline" })
 
-            local themeKey = toggle.toggled and "active" or "inactive";
-            local activeTheme = UI.currentTheme or "Default";
-            local color = UI.themes[activeTheme][themeKey];
-            
-            tween_service:Create(accent_bg, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {
-                BackgroundColor3 = color
-            }):Play()            
+            tween_service:Create(accent_bg, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), { 
+                BackgroundColor3 = UI:AttachTheme(accent_bg, { BackgroundColor3 = toggle.toggled and "active" or "inactive" })
+            }):Play()
         end                  
         signals.connection(new_toggle.MouseButton1Down, set_state);
 
@@ -1992,7 +1753,7 @@ do -- menu
 
         Instance_manager.new("UICorner", {
             Parent = outline,
-            CornerRadius = udim(0, 3)
+            CornerRadius = udim(0, 4),
         });
 
         local inline = Instance_manager.new("TextButton", {
@@ -2011,7 +1772,7 @@ do -- menu
 
         Instance_manager.new("UICorner", {
             Parent = inline,
-            CornerRadius = udim(0, 3)
+            CornerRadius = udim(0, 4),
         });
 
         local text = Instance_manager.new("TextLabel", {
@@ -2414,7 +2175,7 @@ do -- menu
                         opt.button:Destroy()
                     end)
                 end)()
-            end 
+            end
             table.clear(Dropdown.OptionInsts)
 
             createoptions(tbl)
@@ -2427,16 +2188,7 @@ do -- menu
 
             UI.flags[Dropdown.Flag] = chosen
             Dropdown.Callback(chosen)
-        end     
-
-        function Dropdown:Delete(option)
-            for _, opt in next, Dropdown.OptionInsts do
-                if (opt.button.Text == option) then
-                    Dropdown.OptionInsts[opt] = nil;
-                    opt.button:Destroy();
-                end;
-            end;
-        end;
+        end
 
         if Dropdown.Max then
             flags[Dropdown.Flag] = set
@@ -2488,7 +2240,7 @@ do -- menu
 
         Instance_manager.new("UICorner", {
             Parent = Outline,
-            CornerRadius = udim(0, 3)
+            CornerRadius = udim(0, 4),
         });
 
         local Inline = Instance_manager.new("Frame", {
@@ -2504,7 +2256,7 @@ do -- menu
 
         Instance_manager.new("UICorner", {
             Parent = Inline,
-            CornerRadius = udim(0, 3)
+            CornerRadius = udim(0, 4),
         });
 
         local Value = Instance_manager.new("TextBox", {
@@ -2590,7 +2342,19 @@ do -- menu
             Parent = Dropdown.Section.elements.section_content
         });
 
-        UI:AttachTheme(NewList, { BackgroundColor3 = "outline" }) 
+        UI:AttachTheme(NewList, { BackgroundColor3 = "outline" })
+
+        NewList.MouseEnter:Connect(function()
+            tween_service:Create(NewList, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {
+                BackgroundColor3 = UI:AttachTheme(NewList, { BackgroundColor3 = "accent" })
+            }):Play()
+        end)
+        
+        NewList.MouseLeave:Connect(function()
+            tween_service:Create(NewList, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {
+                BackgroundColor3 = UI:AttachTheme(NewList, { BackgroundColor3 = "outline" })
+            }):Play()
+        end)        
 
         local ContentOutline = Instance_manager.new("Frame", {
             Name = "ContentOutline",
@@ -2604,7 +2368,7 @@ do -- menu
 
         Instance_manager.new("UICorner", {
             Parent = ContentOutline,
-            CornerRadius = udim(0, 3)
+            CornerRadius = udim(0, 8),
         });
 
         local ContentInline = Instance_manager.new("ScrollingFrame", {
@@ -2627,7 +2391,7 @@ do -- menu
 
         Instance_manager.new("UICorner", {
             Parent = ContentInline,
-            CornerRadius = udim(0, 3)
+            CornerRadius = udim(0, 8),
         });
 
         Instance_manager.new("UIListLayout", {
@@ -3260,7 +3024,7 @@ do -- open/close
     end);
 end;
 --
-local watermark = UI:watermark({ name = 'Solahub' });
+local watermark = UI:watermark({ name = 'Celestial' });
 
 function UI:Configs(tab)
     tab:textbox({ flag = "cfg_name", name = "config name" });
@@ -3283,7 +3047,7 @@ function UI:Configs(tab)
             local config_name = UI.flags["cfg_name"];
             if config_name ~= "" and not isfile("CONFIGS/" .. config_name .. ".cfg") then
                 writefile("CONFIGS/" .. config_name .. ".cfg", UI:GetConfig());
-                UI:Notification("Created config [".. config_name .."].", 5, Color3.new(0, 1, 1))
+                --library:notification("created config [".. config_name .."].", 5, color3_new(0, 1, 0))
                 cfg_list()
             end;
         end);
@@ -3294,7 +3058,7 @@ function UI:Configs(tab)
             local selected_config = UI.flags["cfg_list"];
             if selected_config then
                 writefile("CONFIGS/" .. selected_config .. ".cfg", UI:GetConfig());
-                UI:Notification("Saved config [".. selected_config .."].", 5, Color3.new(1, 1, 0))
+                --library:notification("saved config [".. selected_config .."].", 5, color3_new(0, 1, 0))
                 cfg_list()
             end;
         end);
@@ -3305,7 +3069,7 @@ function UI:Configs(tab)
             local selected_config = UI.flags["cfg_list"];
             if selected_config then
                 UI:LoadConfig(readfile("CONFIGS/" .. selected_config .. ".cfg"));
-                UI:Notification("Loaded config [".. selected_config .."].", 5, Color3.new(0, 1, 0))
+                --library:notification("loaded config [".. selected_config .."].", 5, color3_new(0, 1, 0))
                 cfg_list()
             end;
         end);
@@ -3316,7 +3080,7 @@ function UI:Configs(tab)
             local selected_config = UI.flags["cfg_list"];
             if selected_config then
                 delfile("CONFIGS/" .. selected_config .. ".cfg");
-                UI:Notification("Deleted config [".. selected_config .."].", 5, Color3.new(1, 0, 0))
+                --library:notification("deleted config [".. selected_config .."].", 5, color3_new(1, 0, 0))
                 cfg_list()
             end;
         end);
@@ -3325,18 +3089,18 @@ function UI:Configs(tab)
 end;
 
 function UI:Themes(tab)
-    tab:dropdown({name = "Themes", description = "Custom themes for Menu", options = {"Default", "blue baby", "quantum", "the hub", "fatality", "gamesense"}, default = "blue baby", flag = "theme_list", callback = function(state)
+    tab:dropdown({name = "Themes", description = "Custom themes for Menu", options = {"Default", "blue baby", "quantum", "off white", "the hub", "fatality", "gamesense"}, default = "blue baby", flag = "theme_list", callback = function(state)
         UI:LoadTheme(state);
     end}); 
 end;
 
 function UI:Extra(tab)
     tab:slider({name = "FPS cap", min = 60, max = 480, default = 240, decimals = 0.1, suffix = "FPS", callback = function(state) setfpscap(state) end});
-    tab:button({name = "Test notification", callback = function()
-        UI:Notification("Test Notification", 3, Color3.fromRGB(math.random(0, 255), math.random(0, 255), math.random(0, 255)));
+    tab:button({name = "exit", callback = function()
+        game:Shutdown();
     end});
     --
-    tab:button({name = "Rejoin", callback = function()
+    tab:button({name = "rejoin", callback = function()
         pcall(function() game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer); end);
     end});
 end;
@@ -3354,7 +3118,7 @@ function UI:Menu(tab)
             ["Pixel"] = {fonts.smallest_pixel, 9},
             Rubik = {Font.new([[rbxassetid://12187365977]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal), 12},
         };
-        for _, v in ipairs({UI.menu_gui, UI.watermark_gui, UI.keybind_screen_gui, UI.noti_screen_gui}) do
+        for _, v in ipairs({UI.menu_gui, UI.watermark_gui, UI.keybind_screen_gui}) do
             for _, obj in ipairs(v:GetDescendants()) do
                 if obj:IsA("TextLabel") or obj:IsA("TextButton") or obj:IsA("TextBox") then
                     obj.FontFace, obj.TextSize = table.unpack(fonts[state]);
@@ -3379,7 +3143,7 @@ framework.modules.signals.connection(run_service["RenderStepped"], function(dt)
             local avg_ping = math.floor(ping:GetValue());
             local display_game = "v2";
             watermark:update_text(string.format(
-                'Solahub | PING <font color="%s">%d</font> | FPS <font color="%s">%d</font> | Build <font color="%s">%s</font>', accent, avg_ping, accent, avg_fps, accent, display_game
+                'Celestial | PING <font color="%s">%d</font> | FPS <font color="%s">%d</font> | Build <font color="%s">%s</font>', accent, avg_ping, accent, avg_fps, accent, display_game
             ));
         end;
     end;
