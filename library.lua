@@ -23,6 +23,17 @@ do -- checks
         end;
     end;
 end;
+--
+if (not LPH_OBFUSCATED) then
+    function LPH_NO_VIRTUALIZE(f) return f end;
+    function LPH_JIT(...) return ... end;
+    function LPH_JIT_MAX(...) return ... end;
+    function LPH_NO_UPVALUES(f) return (function(...) return f(...) end) end;
+    function LPH_ENCSTR(...) return ... end;
+    function LPH_ENCNUM(...) return ... end;
+    function LPH_CRASH() return print(debug.traceback()) end;
+end;
+--
 -- math
 local udim2 = UDim2.new;
 local udim = UDim.new;
@@ -3282,11 +3293,11 @@ framework.modules.signals.connection(run_service["RenderStepped"], function(dt)
             local accent = string.format("#%02X%02X%02X", accent_color.R * 255, accent_color.G * 255, accent_color.B * 255);
             local avg_fps = fps:GetValue();
             local avg_ping = math.floor(ping:GetValue());
-            local display_game = "V1";
+            local display_game = "V2";
             local user_type = (LPH_OBFUSCATED and "Public") or "Developer";  -- Set the user type here
     
             watermark:update_text(string.format(
-                'Prestige | PING <font color="%s">%d</font> | FPS <font color="%s">%d</font> | Build <font color="%s">%s</font> | User <font color="%s">%s</font>', 
+                'Celestial | PING <font color="%s">%d</font> | FPS <font color="%s">%d</font> | Build <font color="%s">%s</font> | User <font color="%s">%s</font>', 
                 accent, avg_ping, accent, avg_fps, accent, display_game, accent, user_type
             ));
         end;
