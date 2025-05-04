@@ -3241,9 +3241,6 @@ function UI:Themes(tab)
     tab:dropdown({name = "Themes", description = "Custom themes for Menu", options = {"Default", "blue baby", "quantum", "off white", "the hub", "fatality", "gamesense"}, default = "blue baby", flag = "theme_list", callback = function(state)
         UI:LoadTheme(state);
     end});
-    fov:colorpicker({Name = "Menu Accent", Flag = "Menu_accent", Alpha = 0, Section = "yeah", description = "Changes Accent Of Menu", Default = Color3.fromRGB(95, 201, 201), callback = function(Value)
-             UI.themes.Default.accent = Value
-    end})
 end;
 
 function UI:Extra(tab)
