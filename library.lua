@@ -136,6 +136,7 @@ local UI = ({
         },
     },
     instancemap = {},
+    notifications = {};
 
     keys = {
         [Enum.KeyCode.LeftShift] = "L-SHIFT", [Enum.KeyCode.RightShift] = "R-SHIFT", [Enum.KeyCode.LeftControl] = "L-CTRL",
@@ -349,6 +350,151 @@ do -- other
 end
 --
 do -- menu
+    function UI:Notification(message, duration, color, player)
+        local notification = {
+            Container = nil, Objects = {}
+        };
+    
+        local notif_ui = cloneref(Instance.new("ScreenGui", gethui()))
+        local notifcontainer = Instance.new('Frame', notif_ui)
+        local outline = Instance.new("Frame")
+        local inline = Instance.new("Frame")
+        local value = Instance.new("TextLabel")
+        local uipadding = Instance.new("UIPadding")
+        local time_line = Instance.new("Frame")
+        local base_position = Vector2.new(25, 65) -- fixed X, starting Y position for notifications
+        local player_image = Instance.new("ImageLabel")
+    
+        do -- properties
+            notif_ui.Name = "notification"
+            notif_ui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+            notif_ui.IgnoreGuiInset = Enum.ScreenInsets.DeviceSafeInsets
+            notif_ui.IgnoreGuiInset = true
+            UI.noti_screen_gui = notif_ui
+    
+            notifcontainer.Name = "container"
+            notifcontainer.Position = UDim2.new(0, base_position.X, 0, base_position.Y + (#UI.notifications * 25))
+            notifcontainer.AutomaticSize = Enum.AutomaticSize.X
+            notifcontainer.Size = UDim2.new(0, 0, 0, 18)
+            notifcontainer.BackgroundColor3 = Color3.new(1, 1, 1)
+            notifcontainer.BackgroundTransparency = 1
+            notifcontainer.BorderSizePixel = 0
+            notifcontainer.BorderColor3 = Color3.new(0, 0, 0)
+            notifcontainer.ZIndex = 99999999
+            notification.Container = notifcontainer
+    
+            outline.Name = "outline"
+            outline.AutomaticSize = Enum.AutomaticSize.X
+            outline.BorderColor3 = Color3.fromRGB(0, 0, 0)
+            outline.Position = UDim2.new(0.01, 0, 0.02, 0)
+            outline.Size = UDim2.new(0, 0, 0, 18)
+            outline.Parent = notifcontainer
+            outline.BackgroundTransparency = 1
+            table.insert(notification.Objects, outline)
+
+            UI:AttachTheme(outline, { BackgroundColor3 = "background" })
+    
+            inline.Name = "inline"
+            inline.BackgroundColor3 = Color3.fromRGB(5, 5, 5)
+            inline.BorderColor3 = Color3.fromRGB(0, 0, 0)
+            inline.BorderSizePixel = 0
+            inline.Position = UDim2.new(0, 1, 0, 0)
+            inline.Size = UDim2.new(1, 0, 1, -1)
+            inline.BackgroundTransparency = 1
+            inline.Parent = outline
+            table.insert(notification.Objects, inline)
+    
+            if player then
+                local imagedata = players:GetUserThumbnailAsync(player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+                player_image.Image = imagedata
+                player_image.Size = UDim2.new(0, 14, 0, 14)
+                player_image.Position = UDim2.new(0, 4, 0.8, -13)
+                player_image.BackgroundTransparency = 1
+                player_image.Parent = inline
+                value.Position = UDim2.new(0, 20, 0, 0)
+                table.insert(notification.Objects, player_image)
+            end
+    
+            value.Name = "text"
+            value.Text = message
+            value.TextColor3 = Color3.fromRGB(255, 255, 255)
+            value.TextStrokeTransparency = 0
+            value.TextXAlignment = Enum.TextXAlignment.Left
+            value.AutomaticSize = Enum.AutomaticSize.X
+            value.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+            value.BackgroundTransparency = 1
+            value.Size = UDim2.new(0, 0, 1, 0)
+            value.TextTransparency = 1
+            value.Parent = inline
+            value.FontFace = UI.font
+            value.TextSize = UI.font_size
+            table.insert(notification.Objects, value)
+    
+            uipadding.Name = "uipadding"
+            uipadding.PaddingLeft = UDim.new(0, 5)
+            uipadding.PaddingRight = UDim.new(0, 5)
+            uipadding.PaddingTop = UDim.new(0, 1)
+            uipadding.Parent = value
+    
+            time_line.Name = "timeline"
+            time_line.BorderColor3 = Color3.fromRGB(0, 0, 0)
+            time_line.BorderSizePixel = 0
+            time_line.Size = UDim2.new(0, 0, 1, 0) -- start at 0 size
+            time_line.Parent = outline
+            time_line.BackgroundTransparency = 1
+            time_line.BackgroundColor3 = color
+            time_line.ZIndex = -1
+            table.insert(notification.Objects, time_line)
+        end
+    
+        function notification:remove()
+            local index = table.find(UI.notifications, notification)
+            if index then
+                for _, v in ipairs(notification.Objects) do
+                    if v:IsA("Frame") or v:IsA("ImageLabel") then
+                        tween_service:Create(v, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
+                    elseif v:IsA("TextLabel") then
+                        tween_service:Create(v, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextTransparency = 1}):Play()
+                    end
+                end
+    
+                task.wait(0.5)
+                table.remove(UI.notifications, table.find(UI.notifications, notification))
+                notif_ui:Destroy()
+                notification.Container:Destroy()
+    
+                for i = index, #UI.notifications do
+                    local notif = UI.notifications[i]
+                    local newPosition = UDim2.new(0, base_position.X, 0, base_position.Y + (i - 1) * 25)
+                    tween_service:Create(notif.Container, TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Position = newPosition}):Play()
+                end
+            end
+        end
+    
+        task.spawn(function()
+            outline.AnchorPoint = Vector2.new(1, 0)
+            for _, v in next, notification.Objects do
+                if v:IsA("Frame") then
+                    tween_service:Create(v, TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {BackgroundTransparency = 0}):Play()
+                elseif v:IsA("ImageLabel") then
+                    tween_service:Create(v, TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {BackgroundTransparency = 0}):Play()
+                end
+            end
+            tween_service:Create(outline, TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {AnchorPoint = Vector2.new(0, 0)}):Play()
+            tween_service:Create(value, TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {TextTransparency = 0}):Play()
+            tween_service:Create(player_image, TweenInfo.new(1, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {ImageTransparency = 0}):Play()
+            tween_service:Create(time_line, TweenInfo.new(duration, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {Size = UDim2.new(1, 0, 1, 0)}):Play()
+    
+            task.wait(duration)
+            notification:remove()
+        end)
+    
+        table.insert(UI.notifications, notification)
+        notifcontainer.Position = UDim2.new(0, base_position.X, 0, base_position.Y + (#UI.notifications - 1) * 25)
+    
+        return notification
+    end
+    --
     function UI:watermark(properties)
         local watermark = {
             name = (properties.Name or properties.name or "watermark text | placeholder");
@@ -3039,7 +3185,7 @@ function UI:Configs(tab)
             local config_name = UI.flags["cfg_name"];
             if config_name ~= "" and not isfile("CONFIGS/" .. config_name .. ".cfg") then
                 writefile("CONFIGS/" .. config_name .. ".cfg", UI:GetConfig());
-                --library:notification("created config [".. config_name .."].", 5, color3_new(0, 1, 0))
+                    library:notification("created config [".. config_name .."].", 5, color3_new(0, 1, 0))
                 cfg_list()
             end;
         end);
@@ -3050,7 +3196,7 @@ function UI:Configs(tab)
             local selected_config = UI.flags["cfg_list"];
             if selected_config then
                 writefile("CONFIGS/" .. selected_config .. ".cfg", UI:GetConfig());
-                --library:notification("saved config [".. selected_config .."].", 5, color3_new(0, 1, 0))
+                    library:notification("saved config [".. selected_config .."].", 5, color3_new(0, 1, 0))
                 cfg_list()
             end;
         end);
@@ -3061,7 +3207,7 @@ function UI:Configs(tab)
             local selected_config = UI.flags["cfg_list"];
             if selected_config then
                 UI:LoadConfig(readfile("CONFIGS/" .. selected_config .. ".cfg"));
-                --library:notification("loaded config [".. selected_config .."].", 5, color3_new(0, 1, 0))
+                    library:notification("loaded config [".. selected_config .."].", 5, color3_new(0, 1, 0))
                 cfg_list()
             end;
         end);
@@ -3072,7 +3218,7 @@ function UI:Configs(tab)
             local selected_config = UI.flags["cfg_list"];
             if selected_config then
                 delfile("CONFIGS/" .. selected_config .. ".cfg");
-                --library:notification("deleted config [".. selected_config .."].", 5, color3_new(1, 0, 0))
+                    library:notification("deleted config [".. selected_config .."].", 5, color3_new(1, 0, 0))
                 cfg_list()
             end;
         end);
@@ -3088,6 +3234,9 @@ end;
 
 function UI:Extra(tab)
     tab:slider({name = "FPS cap", min = 60, max = 480, default = 240, decimals = 0.1, suffix = "FPS", callback = function(state) setfpscap(state) end});
+    tab:button({name = "Test notification", callback = function()
+        UI:Notification("Test Notification", 3, Color3.fromRGB(math.random(0, 255), math.random(0, 255), math.random(0, 255)));
+    end});
     tab:button({name = "exit", callback = function()
         game:Shutdown();
     end});
